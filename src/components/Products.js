@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Product from './Product';
+import {connect} from 'react-redux';
 
 class Products extends Component {
     render() {
@@ -13,6 +14,12 @@ class Products extends Component {
                     </div>
                 </section>
         );
+    }
+}
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+        prop: state.prop
     }
 }
 
