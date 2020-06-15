@@ -1,9 +1,9 @@
-import {combineReducer} from 'react-redux';
-import product from './product';
+import {combineReducers} from 'redux';
+import products from './products';
 
-const appReducer = combineReducer({
-    product
+const appReducers = combineReducers({
+    products
 });
 
-export default appReducer;
+export default appReducers;
 

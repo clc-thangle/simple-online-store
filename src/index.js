@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import appReducer from './reducers/index';
-import {createStore, Provider} from 'react-redux';
+import appReducers from './reducers/index';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
 
 const store = createStore(
-  appReducer
+  appReducers
 );
 
 ReactDOM.render(

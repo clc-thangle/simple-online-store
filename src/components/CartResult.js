@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 class CartResult extends Component {
     render() {
         return (
-            <div>
+            <Fragment>
                 <tr>
                     <td colSpan="3"></td>
                     <td>
@@ -22,7 +22,7 @@ class CartResult extends Component {
                         </button>
                     </td>
                 </tr>
-            </div>
+            </Fragment>
         );
     }
 }

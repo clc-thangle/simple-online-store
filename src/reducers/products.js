@@ -16,7 +16,7 @@ var initialState = [
         inventory: 15
     },
     {
-        id: 1,
+        id: 3,
         name: 'Oppo F1s',
         image: '',
         des: 'Sản phẩm do china sản xuất',
@@ -25,10 +25,10 @@ var initialState = [
     },
 ];
 
-const product = (state = initialState, action) => {
+const products = (state = initialState, action) => {
     switch(action.type){
         default: return [...state];
     }
 }
 
-export default product;
+export default products;
