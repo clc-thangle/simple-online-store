@@ -1,17 +1,44 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import Products from '../components/Products';
+import Product from './../components/Product'
+import PropTypes from 'prop-types';
 
 class ProductsContainer extends Component {
     
     render() {
         var { products } = this.props;
-        // console.log(products.length);
-        
         return (
-            <Products products={products}/>
+            <Products>
+                {this.showProducts(products)}
+            </Products>
         );
     }
+
+    showProducts(products){
+        var result = null;
+        if(products.length>0) {
+            result = products.map((product,index) => {
+                return <Product key={index} product={product}/>
+            });
+        }
+        // console.log(products.length);
+        return result;
+    }
+}
+
+ProductsContainer.propTypes = { // check prop của product
+    products : PropTypes.arrayOf(
+        PropTypes.shape({
+            id : PropTypes.number.isRequired,
+            name : PropTypes.string.isRequired,
+            image : PropTypes.string.isRequired,
+            des : PropTypes.string.isRequired,
+            price : PropTypes.number.isRequired,
+            inventory : PropTypes.number.isRequired,
+            rating : PropTypes.number.isRequired
+        })
+    ).isRequired // nghĩa là bắt buộc phải có
 }
 
 const mapStateToProps = state => {
@@ -20,5 +47,5 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, null)(Products);
+export default connect(mapStateToProps, null)(ProductsContainer);
 

@@ -21,11 +21,38 @@ var initialState = [
         id: 3,
         name: 'Oppo R17 Pro',
         image: 'https://halomobile.vn/wp-content/uploads/2018/03/oppo-r17-pro-600x600.jpg',
-        des: 'Sản phẩm do china sản xuất',
+        des: 'Sản phẩm do China sản xuất',
         price: 450,
         inventory: 5,
         rating: 5
     },
+    {
+        id: 4,
+        name: 'Xiaomi Redmi Note 9S',
+        image: 'https://cdn.tgdd.vn/Products/Images/42/214924/xiaomi-redmi-note-9s-4gb-green-400x460-600x600.jpg',
+        des: 'Sản phẩm do China sản xuất',
+        price: 400,
+        inventory: 15,
+        rating: 3
+    },
+    {
+        id: 5,
+        name: 'Nokia 6.1 Plus',
+        image: 'https://cdn.tgdd.vn/Products/Images/42/167150/nokia-61-plus-2-600x600.jpg',
+        des: 'Sản phẩm do Microsoft sản xuất',
+        price: 400,
+        inventory: 15,
+        rating: 3
+    },
+    {
+        id: 2,
+        name: 'Vertu Rose Gold',
+        image: 'https://euluxury.vn/wp-content/uploads/2019/07/vertu-ch%E1%BA%BF-t%C3%A1c-600x600.png',
+        des: 'Sản phẩm do Frank Nuovo sản xuất',
+        price: 400,
+        inventory: 15,
+        rating: 5
+    }
 ];
 
 const products = (state = initialState, action) => {
