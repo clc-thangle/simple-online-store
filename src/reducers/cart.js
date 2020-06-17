@@ -13,6 +13,18 @@ var initialState = [
             rating: 5
         },
         quantity : 5
+    },
+    {
+        product : {
+            id: 3,
+            name: 'Oppo R17 Pro',
+            image: 'https://halomobile.vn/wp-content/uploads/2018/03/oppo-r17-pro-600x600.jpg',
+            des: 'Sản phẩm do China sản xuất',
+            price: 450,
+            inventory: 5,
+            rating: 5
+        },
+        quantity : 3
     }
 ];
 
