@@ -4,6 +4,7 @@ import CartResult from './CartResult';
 
 class Cart extends Component {
     render() {
+        var {children} = this.props;
         return (
             <div>
                 <section className="section">
@@ -20,9 +21,7 @@ class Cart extends Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                <CartItem/>
-                                <CartItem/>
-                                <CartItem/>
+                                {children}
                                 <CartResult/>
                             </tbody>
                         </table>
