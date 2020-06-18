@@ -1,40 +1,38 @@
-import * as types from './../constants/ActionType';
-import products from './products';
+import * as Types from './../constants/ActionType';
 var data = JSON.parse(localStorage.getItem('CART'));
-var initialState = [
-    {
-        product : {
-            id: 3,
-            name: 'Oppo R17 Pro',
-            image: 'https://halomobile.vn/wp-content/uploads/2018/03/oppo-r17-pro-600x600.jpg',
-            des: 'Sản phẩm do China sản xuất',
-            price: 450,
-            inventory: 5,
-            rating: 5
-        },
-        quantity : 5
-    },
-    {
-        product : {
-            id: 3,
-            name: 'Oppo R17 Pro',
-            image: 'https://halomobile.vn/wp-content/uploads/2018/03/oppo-r17-pro-600x600.jpg',
-            des: 'Sản phẩm do China sản xuất',
-            price: 450,
-            inventory: 5,
-            rating: 5
-        },
-        quantity : 3
-    }
-];
+var initialState = data ? data : [];
 
 const cart = (state = initialState, action) => {
-    switch(action.type){
-        case types.ADD_TO_CART:
-                console.log(action);
-                return [...state];
+    var { product, quantity } = action;
+    var index = -1;
+    switch (action.type) {
+        case Types.ADD_TO_CART:
+            index = findProductInCart(state, product); //state là danh sách sản phảm trong giỏ, pro là sp vừa bấm vào thêm
+            if (index !== -1) {
+                state[index].quantity += quantity;
+            }
+            else {
+                state.push({
+                    product, quantity
+                });
+            }
+            localStorage.setItem('CART',JSON.stringify(state));
+            return [...state];
         default: return [...state];
     }
+}
+
+var findProductInCart = (cart, product) => {
+    var index = -1;
+    if (cart.length > 0) {
+        for (var i = 0; i < cart.length; i++) {
+            if (cart[i].product.id === product.id) {
+                index = i;
+                break;
+            }
+        }
+    }
+    return index
 }
 
 export default cart;
