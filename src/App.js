@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Message from './components/Message';
 import ProductsContainer from './containers/ProductsContainer';
 import CartContainer from './containers/CartContainer';
+import MessageContainer from './containers/MessageContainer';
 class App extends Component {
     render() {
         return (
@@ -12,8 +13,8 @@ class App extends Component {
                 <Header />
                 <main id="mainContainer">
                     <div className="container">
-                        <ProductsContainer />
-                        <Message />
+                        <ProductsContainer/>
+                        <MessageContainer/>
                         <CartContainer/>
                     </div>
                 </main>
