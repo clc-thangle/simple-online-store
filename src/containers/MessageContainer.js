@@ -14,9 +14,9 @@ class MessageContainer extends Component {
     }
 }
 
-MessageContainer.propTypes = {
-    message : PropTypes.string.isRequired
-}
+// MessageContainer.propTypes = {
+//     message : PropTypes.string.isRequired
+// }
 
 const mapStateToProps = state => {
     return {
