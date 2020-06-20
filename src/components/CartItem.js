@@ -33,13 +33,21 @@ class CartItem extends Component {
                     <td>{this.showTotalPrice(item.product.price,item.quantity)}$</td>
                     <td>
                         <button type="button" className="btn btn-sm btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top"
-                            title="" data-original-title="Remove item">
+                        title="" data-original-title="Remove item"
+                        onClick={() => this.onDelete(item.product)}
+                        >
                             X
-                                        </button>
+                        </button>
                     </td>
                 </tr>
             </Fragment>
         );
+    }
+
+    onDelete = (product) => {
+        console.log(product);
+        var {onDeleteProductInCart} = this.props;
+        onDeleteProductInCart(product);
     }
 
     showTotalPrice = (price,quantity) => {
