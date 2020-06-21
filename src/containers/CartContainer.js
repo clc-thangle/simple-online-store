@@ -5,7 +5,7 @@ import Cart from './../components/Cart';
 import * as Message from './../constants/Message';
 import CartItem from '../components/CartItem';
 import CartResult from './../components/CartResult';
-import {actDeleteProductInCart} from './../actions/index';
+import {actDeleteProductInCart, actChangeMessage} from './../actions/index';
 class CartContainer extends Component {
     
     render() {
@@ -27,6 +27,7 @@ class CartContainer extends Component {
                     item={item}
                     key={index}
                     onDeleteProductInCart={this.props.onDeleteProductInCart}
+                    onChangeMessage={this.props.onChangeMessage}
                     />
                 )
             })
@@ -68,6 +69,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         onDeleteProductInCart: (product) => {
             dispatch(actDeleteProductInCart(product));
+        },
+        onChangeMessage: (message) => {
+            dispatch(actChangeMessage(message));
         }
     }
 }

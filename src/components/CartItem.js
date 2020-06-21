@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Fragment } from 'react';
-
+import * as Message from './../constants/Message';
 class CartItem extends Component {
     render() {
         var {item} = this.props;
@@ -46,8 +46,9 @@ class CartItem extends Component {
 
     onDelete = (product) => {
         console.log(product);
-        var {onDeleteProductInCart} = this.props;
+        var {onDeleteProductInCart, onChangeMessage} = this.props;
         onDeleteProductInCart(product);
+        onChangeMessage(Message.MSG_DELETE_PRODUCT_IN_CART_SUCCESS);
     }
 
     showTotalPrice = (price,quantity) => {
