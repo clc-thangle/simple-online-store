@@ -1,8 +1,11 @@
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import { actOrderCart } from './../actions/index';
+import * as Types from './../constants/ActionType';
 
 class CartResult extends Component {
     render() {
-        var {cart} = this.props;
+        var { cart } = this.props;
         return (
             <Fragment>
                 <tr>
@@ -18,8 +21,9 @@ class CartResult extends Component {
                         </h4>
                     </td>
                     <td colSpan="3">
-                        <button type="button" className="btn btn-primary waves-effect waves-light">Complete purchase
-                                            <i className="fa fa-angle-right right"></i>
+                        <button type="button" className="btn btn-primary waves-effect waves-light"
+                            onClick={() => this.props.onOrderCart()}
+                        >Complete purchase<i className="fa fa-angle-right right"></i>
                         </button>
                     </td>
                 </tr>
@@ -29,10 +33,8 @@ class CartResult extends Component {
 
     showTotalAmount = (cart) => {
         var total = 0;
-        if(cart.length >0)
-        {
-            for(var i = 0; i < cart.length; i++)
-            {
+        if (cart.length > 0) {
+            for (var i = 0; i < cart.length; i++) {
                 total += cart[i].product.price * cart[i].quantity;
             }
         }
@@ -40,4 +42,14 @@ class CartResult extends Component {
     }
 }
 
-export default CartResult;
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        onOrderCart: () => {
+            dispatch({ type: Types.ORDER_CART });
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(CartResult);
+
+// export default CartResult;

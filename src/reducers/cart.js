@@ -16,22 +16,29 @@ const cart = (state = initialState, action) => {
                     product, quantity
                 });
             }
-            localStorage.setItem('CART',JSON.stringify(state));
+            localStorage.setItem('CART', JSON.stringify(state));
             return [...state];
         case Types.DELETE_PRODUCT_IN_CART:
             index = findProductInCart(state, product);
-            if(index !== -1) {
+            if (index !== -1) {
                 state.splice(index, 1);
             }
-            localStorage.setItem('CART',JSON.stringify(state));
+            localStorage.setItem('CART', JSON.stringify(state));
             return [...state];
         case Types.UPDATE_PRODUCT_IN_CART:
             index = findProductInCart(state, product);
-            if(index !== -1) {
+            if (index !== -1) {
                 state[index].quantity = quantity;
             }
-            localStorage.setItem('CART',JSON.stringify(state));
+            localStorage.setItem('CART', JSON.stringify(state));
             return [...state];
+        case Types.ORDER_CART:
+            if (state.length > 0) {
+                // localStorage.clear();
+                localStorage.removeItem('CART')
+                alert('Đặt hàng thành công');
+            }
+            state = [];
         default: return [...state];
     }
 }

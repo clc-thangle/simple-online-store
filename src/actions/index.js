@@ -29,3 +29,4 @@ export const actUpdateProductInCart = (product, quantity) => {
         quantity
     }
 }
+

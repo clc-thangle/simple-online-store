@@ -5,7 +5,7 @@ class CartItem extends Component {
 
     render() {
         var { item } = this.props;
-        var { quantity } = item
+        var { quantity } = item;
         console.log(item);
         
         console.log(quantity);
